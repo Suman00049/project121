@@ -2,11 +2,11 @@
 const getApiUrl = (): string => {
   // Check if we're in development
   if (import.meta.env.DEV) {
-    return import.meta.env.VITE_API_URL || 'https://project121-iota.vercel.app/';
+    return import.meta.env.VITE_API_URL || 'http://localhost:3001';
   }
   
   // Production environment - use environment variable
-  return import.meta.env.VITE_API_URL || 'https://project121-iota.vercel.app/';
+  return import.meta.env.VITE_API_URL || 'https://your-backend-app.vercel.app';
 };
 
 export const API_BASE_URL = getApiUrl();
