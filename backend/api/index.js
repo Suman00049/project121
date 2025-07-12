@@ -41,7 +41,8 @@ app.use('/api/attendance', attendanceRoutes);
 app.use('/api/admin', adminRoutes);
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+// app.get('/health', (req, res) => {
+  app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'OK', 
     timestamp: new Date().toISOString(),
