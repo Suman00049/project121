@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 // CORS configuration for production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.FRONTEND_URL, 'https://your-frontend-app.vercel.app']
+    ? [process.env.FRONTEND_URL, 'https://employee-management-bzh3-aeslfcajz-sumans-projects-cc85c3c0.vercel.app/']
     : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
