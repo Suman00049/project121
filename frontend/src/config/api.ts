@@ -1,12 +1,13 @@
 // API Configuration for different environments
 const getApiUrl = (): string => {
-  // Check if we're in development
+  const envUrl = import.meta.env.VITE_API_URL?.trim();
+
   if (import.meta.env.DEV) {
-    return import.meta.env.VITE_API_URL || 'https://employee-management-bzh3.vercel.app';
+    return envUrl || 'http://localhost:3001';
   }
-  
-  // Production environment - use environment variable
-  return import.meta.env.VITE_API_URL || 'https://your-backend-app.vercel.app';
+
+  // Production fallback (only used if env var fails)
+  return envUrl || 'https://project121-iota.vercel.app';
 };
 
 export const API_BASE_URL = getApiUrl();
@@ -32,5 +33,5 @@ export const API_ENDPOINTS = {
   ADMIN_STATISTICS: `${API_BASE_URL}/api/admin/statistics`,
   
   // Health check
-  HEALTH: `${API_BASE_URL}/health`
+  HEALTH: `${API_BASE_URL}/api/health`
 };
