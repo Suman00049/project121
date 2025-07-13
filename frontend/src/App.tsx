@@ -45,5 +45,4 @@ function App() {
   );
 }
 //k
-//s
 export default App;
