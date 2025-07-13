@@ -152,11 +152,21 @@ dotenv.config();
 const app = express();
 
 // ✅ CORS Configuration
+const allowedOrigins = [
+  'https://employee-management-bzh3.vercel.app',
+  'https://employee-management-bzh3-2x90ikqqk-sumans-projects-cc85c3c0.vercel.app', // Vercel preview domain
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+
 const corsOptions = {
-  origin:
-    process.env.NODE_ENV === 'production'
-      ? [process.env.FRONTEND_URL, 'https://employee-management-bzh3.vercel.app']
-      : ['http://localhost:5173', 'http://localhost:3000'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -164,6 +174,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+
 
 // ✅ MongoDB Connection (only once in serverless)
 const MONGODB_URI = process.env.MONGODB_URI;
