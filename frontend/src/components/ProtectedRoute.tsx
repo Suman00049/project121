@@ -10,6 +10,11 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, adminOnly = false }) => {
   const { currentUser, userRole } = useAuth();
 
+
+  console.log('VITE_API_URL:', import.meta.env.VITE_API_URL); 
+
+
+
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
