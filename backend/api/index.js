@@ -182,7 +182,7 @@ if (!isConnected) {
 // ✅ API Routes
 app.use('https://employee-management-bzh3.vercel.app/api/users', userRoutes);
 app.use('https://employee-management-bzh3.vercel.app/api/attendance', attendanceRoutes);
-app.use('/api/admin', adminRoutes);
+app.use('https://employee-management-bzh3.vercel.app/api/attendance/api/admin', adminRoutes);
 
 // ✅ Health Check
 app.get('/api/health', (req, res) => {
