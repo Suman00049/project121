@@ -7,7 +7,7 @@ const getApiUrl = (): string => {
   }
 
   // Production fallback (only used if env var fails)
-  return envUrl || 'https://project121-iota.vercel.app';
+  return envUrl || 'https://project121-kappa.vercel.app';
 };
 
 export const API_BASE_URL = getApiUrl();
