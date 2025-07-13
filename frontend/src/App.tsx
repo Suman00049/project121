@@ -36,7 +36,7 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
-              <Route path="/" element={<Navigate to="/login" />} />
+              <Route path="/" element={<Navigate to="/login" />} />             
             </Routes>
           </Router>
         </AttendanceProvider>
@@ -45,4 +45,5 @@ function App() {
   );
 }
 //k
+//s
 export default App;
