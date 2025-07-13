@@ -3,7 +3,7 @@ const getApiUrl = (): string => {
   const envUrl = import.meta.env.VITE_API_URL?.trim();
 
   if (import.meta.env.DEV) {
-    return envUrl || 'http://localhost:3001';
+    return envUrl || 'https://project121-iota.vercel.app';
   }
 
   // Production fallback (only used if env var fails)
