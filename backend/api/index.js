@@ -156,7 +156,7 @@ const corsOptions = {
   origin:
     process.env.NODE_ENV === 'production'
       ? [process.env.FRONTEND_URL, 'https://employee-management-bzh3.vercel.app']
-      : ['http://localhost:5173', 'http://localhost:3001'],
+      : ['http://localhost:5173', 'http://localhost:3001'],                                //yha 3000 tha
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -180,8 +180,8 @@ if (!isConnected) {
 }
 
 // ✅ API Routes
-app.use('/api/users', userRoutes);
-app.use('/api/attendance', attendanceRoutes);
+app.use('https://employee-management-bzh3.vercel.app/api/users', userRoutes);
+app.use('https://employee-management-bzh3.vercel.app/api/attendance', attendanceRoutes);
 app.use('/api/admin', adminRoutes);
 
 // ✅ Health Check
