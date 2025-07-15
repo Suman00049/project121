@@ -45,7 +45,7 @@ const updateAttendanceCalculations = async (attendance) => {
 };
 
 // Get today's attendance record
-router.get('https://employee-management-bzh3.vercel.app/api/attendance/today/:uid', async (req, res) => {
+router.get('/today/:uid', async (req, res) => {
   try {
     const today = new Date().toISOString().split('T')[0];
     const attendance = await Attendance.findOne({ 
