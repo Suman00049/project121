@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { AttendanceProvider } from './contexts/AttendanceContext';
@@ -17,9 +17,12 @@ function App() {
         <AttendanceProvider>
           <Router>
             <Routes>
+              <Route path="/" element={<Navigate to="/login" replace />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              
+              {/* Employee Dashboard (requires auth) */}
               <Route 
                 path="/dashboard" 
                 element={
@@ -28,6 +31,8 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
+
+              {/* Admin Dashboard (requires admin flag) */}
               <Route 
                 path="/admin" 
                 element={
@@ -36,7 +41,6 @@ function App() {
                   </ProtectedRoute>
                 } 
               />
-              <Route path="/" element={<Navigate to="/login" />} />             
             </Routes>
           </Router>
         </AttendanceProvider>
@@ -44,5 +48,5 @@ function App() {
     </div>
   );
 }
-//k
+
 export default App;
